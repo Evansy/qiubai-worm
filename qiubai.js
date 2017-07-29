@@ -1,6 +1,7 @@
 /**
  * created by 小柏 2017/01/17
  * mail: skcy@vip.qq.com
+ * git: https://github.com/Evansy/qiubai-worm
  */
 
 // 系统组件 使用方法参考http://www.myexception.cn/javascript/2010018.html
@@ -68,7 +69,7 @@ qiubaiWorm.checkTime = function () {
 		// 如果本地存在已经存储的页数
 		fs.readFile('default.ini', 'utf8', (err, data) => {
 
-			let parseData = {};
+			let parseData = null;
 			let nowTime = Date.parse(new Date()) / 1000;	// 当前时间时间戳
 
 			// 如果读取文件发生错误
@@ -87,8 +88,9 @@ qiubaiWorm.checkTime = function () {
 					// throw erro;
 				}
 
-				// 修改时间
+				// 读取文件修改时间
 				let FileFixedTime = Date.parse(datas.mtime) / 1000;
+				// 与当前时间比对
 				let diffTime = (FileFixedTime - nowTime) / 24 / 3600;
 
 				// 如果时间间隔超过一天了 重置笑话条数索引
@@ -192,7 +194,7 @@ qiubaiWorm.line = function(){
 				// 笑话条数+1
 				currentIndex ++;
 			}else{
-				console.log('爬虫出小差啦~，有问题请一定反馈给小柏君！')
+				console.log('爬虫出小差啦~，有问题请一定反馈给小柏君！skcy@vip.qq.com')
 			}
 		}
 	}
