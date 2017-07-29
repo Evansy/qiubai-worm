@@ -51,9 +51,7 @@ qiubaiWorm.start = function(){
 		// 开始执行用户输入监听
 		_this.line();
 
-	});
-
-	check.catch((erro)=>{
+	}).catch((erro)=>{
 
 		// 开始获取笑话数据
 		_this.getNewWord();
